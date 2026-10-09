@@ -3,6 +3,7 @@ import{createRoot}from'react-dom/client';
 import{AreaChart,Area,XAxis,YAxis,CartesianGrid,Tooltip,ResponsiveContainer,BarChart,Bar,Cell}from'recharts';
 import{LayoutDashboard,Users,Clock3,CalendarDays,FileSignature,WalletCards,Target,UserSearch,Laptop,ChartNoAxesCombined,Settings,Search,Bell,Plus,Download,ChevronDown,MoreHorizontal,PanelLeft,CheckCircle2,AlertTriangle,X,Building2,ShieldCheck}from'lucide-react';
 import'./style.css';
+import'./ai-report.js';
 
 const seed=[
  {id:'NV-001',name:'Nguyễn Minh Anh',email:'minhanh@peopleops.vn',phone:'090 123 4567',dept:'Sản phẩm',role:'Product Manager',manager:'Trần Hoàng Nam',start:'12/03/2021',status:'Đang làm việc',avatar:'MA',gender:'Nữ'},
