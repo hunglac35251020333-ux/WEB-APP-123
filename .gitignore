@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.sites-stage*/
+*.tar.gz
+.env
+.env.*
+!.env.example
+*.log
