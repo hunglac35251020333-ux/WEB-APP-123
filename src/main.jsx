@@ -14,7 +14,7 @@ const seed=[
 ];
 const nav=[['Tổng quan',LayoutDashboard],['Nhân viên',Users],['Tổ chức',Building2],['Chấm công',Clock3],['Nghỉ phép',CalendarDays],['Hợp đồng',FileSignature],['Bảng lương',WalletCards],['Hiệu suất',Target],['Tuyển dụng',UserSearch],['Tài sản',Laptop],['Báo cáo',ChartNoAxesCombined],['Cài đặt',Settings]];
 const trend=[{m:'T4',in:8,out:2},{m:'T5',in:12,out:4},{m:'T6',in:7,out:3},{m:'T7',in:14,out:5},{m:'T8',in:11,out:2},{m:'T9',in:16,out:4},{m:'T10',in:9,out:3}];
-const depts=[{n:'Công nghệ',v:68,c:'#5b5bd6'},{n:'Kinh doanh',v:49,c:'#42a5f5'},{n:'Vận hành',v:37,c:'#27ae84'},{n:'Marketing',v:28,c:'#f0a44b'},{n:'Nhân sự',v:23,c:'#d96f9f'}];
+const depts=[{n:'Công nghệ',v:68,c:'#EA5E28'},{n:'Kinh doanh',v:49,c:'#222222'},{n:'Vận hành',v:37,c:'#6E7781'},{n:'Marketing',v:28,c:'#F28C62'},{n:'Nhân sự',v:23,c:'#A63400'}];
 const moduleCopy={
  'Chấm công':['Bảng công tháng 10','Theo dõi check-in, đi muộn, tăng ca theo thời gian thực.'],
  'Nghỉ phép':['Quản lý nghỉ phép','Duyệt đơn, theo dõi số dư phép và lịch vắng mặt của đội ngũ.'],
