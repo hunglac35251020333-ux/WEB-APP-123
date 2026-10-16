@@ -21,12 +21,12 @@ $$;
 
 create or replace function is_admin()
 returns boolean language sql stable security definer set search_path = public as $$
-  select coalesce(current_role() in ('super_admin','hr_admin'), false)
+  select coalesce(app_current_role() in ('super_admin','hr_admin'), false)
 $$;
 
 create or replace function is_super_admin()
 returns boolean language sql stable security definer set search_path = public as $$
-  select coalesce(current_role() = 'super_admin', false)
+  select coalesce(app_current_role() = 'super_admin', false)
 $$;
 
 create or replace function manages_employee(target_employee uuid)
@@ -95,11 +95,11 @@ create table if not exists role_permissions (
 create or replace function has_permission(permission_code text)
 returns boolean language sql stable security definer set search_path = public as $$
   select coalesce(
-    current_role() = 'super_admin' or exists (
+    app_current_role() = 'super_admin' or exists (
       select 1
       from role_permissions rp
       join permissions p on p.id = rp.permission_id
-      where rp.role = current_role()
+      where rp.role = app_current_role()
         and rp.granted = true
         and p.code = permission_code
     ), false
