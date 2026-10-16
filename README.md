@@ -40,10 +40,13 @@ APP_TIMEZONE=Asia/Ho_Chi_Minh
 ## Khởi tạo database
 
 1. Tạo Supabase project tại khu vực gần Việt Nam.
-2. Chạy `supabase/migrations/001_init.sql` bằng Supabase CLI hoặc SQL editor.
-3. Bật email/password trong Supabase Auth.
-4. Tạo người dùng quản trị trong Auth, sau đó thêm hồ sơ tương ứng vào `profiles` và gán vai trò `super_admin`.
-5. Kiểm tra RLS bằng bốn tài khoản: Super Admin, HR Admin, Quản lý phòng ban, Nhân viên.
+2. Chạy migration theo đúng thứ tự: `001_init.sql`, sau đó `002_complete_hrm.sql` bằng Supabase CLI hoặc SQL editor.
+3. Chỉ trong môi trường phát triển, có thể chạy `supabase/seed.sql` để tạo danh mục mẫu. Không chạy seed trên production có dữ liệu thật.
+4. Bật email/password trong Supabase Auth.
+5. Tạo người dùng quản trị trong Auth, sau đó thêm hồ sơ tương ứng vào `profiles` và gán vai trò `super_admin`.
+6. Kiểm tra RLS bằng bốn tài khoản: Super Admin, HR Admin, Quản lý phòng ban, Nhân viên.
+
+Migration `002_complete_hrm.sql` bổ sung đầy đủ tổ chức, hồ sơ/tài liệu, ca làm và chấm công, phép, hợp đồng, bảng lương, KPI/OKR, tuyển dụng, tài sản, thông báo, báo cáo, audit log, RBAC/RLS và các view dashboard lấy dữ liệu thật.
 
 ## Kiến trúc đề xuất
 
