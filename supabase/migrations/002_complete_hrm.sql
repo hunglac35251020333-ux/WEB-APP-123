@@ -734,14 +734,28 @@ from attendance
 group by date_trunc('month', work_date);
 
 create or replace view dashboard_headcount_monthly as
-with months as (
-  select generate_series(date_trunc('month', current_date) - interval '11 months', date_trunc('month', current_date), interval '1 month')::date month
+with months(month_start) as (
+  select generated_at::date
+  from generate_series(
+    date_trunc('month', current_date) - interval '11 months',
+    date_trunc('month', current_date),
+    interval '1 month'
+  ) as generated_at
 )
-select m.month,
-  count(e.id) filter (where e.start_date >= m.month and e.start_date < m.month + interval '1 month') as joined,
-  count(e.id) filter (where e.termination_date >= m.month and e.termination_date < m.month + interval '1 month') as left_company
-from months m cross join employees e
-group by m.month order by m.month;
+select
+  m.month_start,
+  count(e.id) filter (
+    where e.start_date >= m.month_start
+      and e.start_date < m.month_start + interval '1 month'
+  ) as joined,
+  count(e.id) filter (
+    where e.termination_date >= m.month_start
+      and e.termination_date < m.month_start + interval '1 month'
+  ) as left_company
+from months m
+left join employees e on true
+group by m.month_start
+order by m.month_start;
 
 -- ============================================================
 -- Indexes and update triggers
